@@ -1,4 +1,4 @@
-<?php 
+<?php
 $dbconn = null;
 if(getenv('DATABASE_URL')){
 $connectionConfig = parse_url(getenv('DATABASE_URL'));
@@ -19,9 +19,8 @@ $dbconn = pg_connect("host=localhost dbname=sat");
 }
 
 class Question {
-  public $id; 
+  public $id;
   public $question;
-  public $text;
   public $answer1;
   public $answer2;
   public $answer3;
@@ -29,10 +28,9 @@ class Question {
   public $tags;
   public $correctanswer;
 
-  public function __construct($id, $question, $text, $answer1, $answer2, $answer3, $answer4, $tags, $correctanswer){
+  public function __construct($id, $question, $answer1, $answer2, $answer3, $answer4, $tags, $correctanswer){
     $this->id = $id;
     $this->question = $question;
-    $this->text=$text;
     $this->answer1 = $answer1;
     $this->answer2 = $answer2;
     $this->answer3 = $answer3;
@@ -43,6 +41,7 @@ class Question {
 }
 
 class Questions {
+  // READ //
   static function all() {
     //empty array to hold all questions
     $questions = [];
@@ -54,8 +53,7 @@ class Questions {
       $new_question = new Question(
         intval($row_object->id),
         $row_object->question,
-        $row_object->text,
-        $row_object->answer1, 
+        $row_object->answer1,
         $row_object->answer2,
         $row_object->answer3,
         $row_object->answer4,
@@ -68,7 +66,29 @@ class Questions {
     return $questions;
   }
 
+  // CREATE //
+  static function create($question) {
+    $query = "INSERT INTO questions (question, answer1, answer2, answer3, answer4, tags, correctanswer) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+    $query_params = array($question->question, $question->answer1, $question->answer2, $question->answer3, $question->answer4, $question->tags, $question->correctanswer);
+    pg_query_params($query, $query_params);
+    return self::all()
+  }
 
+  // UPDATE //
+  static function update($updated_question) {
+    $query = "UPDATE questions SET question=$1, answer1=$2, answer2=$3, answer3=$4, answer4=$5, tags=$6, correctanswer=$7 WHERE id=$8";
+    $query_params = array($update_question->question, $update_question->answer1, $update_question->answer2, $update_question->answer3, $update_question->answer4, $update_question->tags, $update_question->correctanswer);
+    $result = pg_query_params($query, $query_params);
+    return self::all()
+  }
+
+  // DELETE //
+  static function delete($id) {
+    $query = "DELETE FROM questions WHERE id = $1";
+    $query_params = array($id);
+    $result = pg_query_params($query, $query_params);
+    return self::all()
+  }
 }
 
 ?>
