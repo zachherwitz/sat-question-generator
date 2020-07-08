@@ -6,9 +6,41 @@ class NewQuestion extends React.Component {
   }
 }
 
-class EditButton extends React.Component {
+class EditForm extends React.Component {
   render = () => {
-    return <button>EDIT</button>
+    const { question } = this.props;
+    return <form className="edit-form" id={question.id}>
+      <h2>Edit Question</h2>
+      <textarea defaultValue={question.question}></textarea>
+      <textarea defaultValue={question.answer1}></textarea>
+      <textarea defaultValue={question.answer2}></textarea>
+      <textarea defaultValue={question.answer3}></textarea>
+      <textarea defaultValue={question.answer4}></textarea>
+      <input type="text" defaultValue={question.correctanswer} />
+      <input type="text" defaultValue={question.tags} />
+      <input type="submit" value="Change Question" />
+      <a onClick={this.toggle}>Go Back</a>
+    </form>
+  }
+}
+
+class EditButton extends React.Component {
+  state = {
+    display: 'button'
+  }  
+  
+  toggle = () => {
+    (this.state.display === 'button') ?
+      this.setState({ display: 'form' }) :
+      this.setState({display: 'button'})
+  }
+  
+  render = () => {
+    const { question } = this.props;
+    return (
+      (this.state.display === 'button') ? <button onClick={this.toggle}>EDIT</button>
+        : <EditForm question = {question} />
+    )
   }
 }
 
@@ -75,6 +107,20 @@ class App extends React.Component {
           questions:response.data
         })
     })
+  }
+  
+  //UPDATE //
+  updateQuestion = (event) => {
+    axios.put('/sat/' + event.target.getAttribute('id')).then(
+      (response) => {
+        this.setState({
+          questions: response.data
+        })
+      })
+  }
+  
+  updateValues = () => {
+  
   }
 
   //function that changes page view based on nav link
