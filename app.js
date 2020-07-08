@@ -11,7 +11,7 @@ class EditForm extends React.Component {
     event.preventDefault();
     this.setState({
       updateQuestion: {
-        updatedQueston: this.updatedQuestion.value,
+        updatedQuestion: this.updatedQuestion.value,
         updatedAnswer1: this.updatedAnswer1.value,
         updatedAnswer2: this.updatedAnswer2.value,
         updatedAnswer3: this.updatedAnswer3.value,
@@ -20,12 +20,13 @@ class EditForm extends React.Component {
         updatedTags: this.updatedTags.value
       }
     }, () => {
-      console.log(this.state);
+        console.log(this.state.updateQuestion);
+        this.props.update(this.props.question.id, this.state.updateQuestion);
     })
   }
 
   render = () => {
-    const { question } = this.props;
+    const { question, toggle } = this.props;
     return <form className="edit-form" id={question.id} onSubmit={this.test}>
       <h2>Edit Question</h2>
       <textarea ref={input => this.updatedQuestion = input} defaultValue={question.question}></textarea>
@@ -36,7 +37,7 @@ class EditForm extends React.Component {
       <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
       <input ref={input => this.updatedTags = input} type="text" defaultValue={question.tags} />
       <input type="submit" value="Change Question" />
-      <a onClick={this.toggle}>Go Back</a>
+      <a onClick={toggle}>Go Back</a>
     </form>
   }
 }
@@ -53,10 +54,10 @@ class EditButton extends React.Component {
   }
 
   render = () => {
-    const { question } = this.props;
+    const { question, update } = this.props;
     return (
       (this.state.display === 'button') ? <button onClick={this.toggle}>EDIT</button>
-        : <EditForm question = {question} />
+        : <EditForm update={update} question={question} toggle={this.toggle}/>
     )
   }
 }
@@ -69,7 +70,7 @@ class AllQuestions extends React.Component {
         {this.props.questions.map((question, index) => {
           return <div key={index}>
             <p>{question.question}</p><br/>
-            <EditButton question={question}/>
+            <EditButton update={this.props.update} question={question}/>
             <button id={question.id} onClick={this.props.deleteQuestion}>DELETE</button>
           </div>
         })}
@@ -127,17 +128,25 @@ class App extends React.Component {
   }
 
   //UPDATE //
-  updateQuestion = (event) => {
-    axios.put('/sat/' + event.target.getAttribute('id')).then(
+  updateQuestion = (id, body) => {
+    event.preventDefault();
+    console.log('updating...');
+    console.log(id);
+    console.log(body);
+    axios.put('/sat/' + id, {
+      question: body.updatedQuestion,
+      answer1: body.updatedAnswer1,
+      answer2: body.updatedAnswer2,
+      answer3: body.updatedAnswer3,
+      answer4: body.updatedAnswer4,
+      tags: body.updatedTags,
+      correctanswer: body.updatedCorrectAnswer
+    }).then(
       (response) => {
         this.setState({
           questions: response.data
         })
       })
-  }
-
-  updateValues = () => {
-
   }
 
   //function that changes page view based on nav link
@@ -161,7 +170,7 @@ class App extends React.Component {
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
         <Home /> : (this.state.display === 'new-question') ?
-          <NewQuestion /> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} />
+          <NewQuestion /> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
       }
     </div>
   }
