@@ -1,0 +1,4 @@
+Rewrite Engine On
+
+RewriteCond %{REQUEST_METHOD} ^GET$
+RewriteRule ^sat$ controllers/testprep.php?action=index
