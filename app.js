@@ -6,13 +6,23 @@ class NewQuestion extends React.Component {
   }
 }
 
+class EditButton extends React.Component {
+  render = () => {
+    return <button>EDIT</button>
+  }
+}
+
 class AllQuestions extends React.Component {
   render = () => {
     return <div className="home">
       <h1> All Questions Test </h1>
       <div>
         {this.props.questions.map((question, index) => {
-          return <li key={index}>{question.question}</li>
+          return <div key={index}>
+            <p>{question.question}</p><br/>
+            <EditButton question={question}/>
+            <button id={question.id} onClick={this.props.deleteQuestion}>DELETE</button>
+          </div>
         })}
       </div>
     </div>
@@ -57,6 +67,16 @@ class App extends React.Component {
     )
   }
 
+  // DELETE //
+  deleteQuestion = (event) => {
+    axios.delete('/sat/' + event.target.getAttribute('id')).then(
+      (response) => {
+        this.setState({
+          questions:response.data
+        })
+    })
+  }
+
   //function that changes page view based on nav link
   changeDisplay = (event) => {
     this.setState({
@@ -78,7 +98,7 @@ class App extends React.Component {
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
         <Home /> : (this.state.display === 'new-question') ?
-          <NewQuestion /> : <AllQuestions questions={this.state.questions} />
+          <NewQuestion /> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} />
       }
     </div>
   }
