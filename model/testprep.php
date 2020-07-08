@@ -15,7 +15,7 @@ $dbconn = pg_connect(
 "dbname=".$dbname
 );
 } else {
-$dbconn = pg_connect("host=localhost dbname=sat");
+$dbconn = pg_connect("host=localhost dbname=phpapi");
 }
 
 class Question {
