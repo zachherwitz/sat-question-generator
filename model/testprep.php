@@ -57,7 +57,7 @@ class Questions {
         $row_object->answer2,
         $row_object->answer3,
         $row_object->answer4,
-        $row_object->tags
+        $row_object->tags,
         $row_object->correctanswer,
       );
       $questions[] = $new_question;
@@ -68,18 +68,18 @@ class Questions {
 
   // CREATE //
   static function create($question) {
-    $query = "INSERT INTO questions (question, answer1, answer2, answer3, answer4, tags, correctanswer) VALUES ($1, $2, $3, $4, $5, $6, $7)"
+    $query = "INSERT INTO questions (question, answer1, answer2, answer3, answer4, tags, correctanswer) VALUES ($1, $2, $3, $4, $5, $6, $7)";
     $query_params = array($question->question, $question->answer1, $question->answer2, $question->answer3, $question->answer4, $question->tags, $question->correctanswer);
     pg_query_params($query, $query_params);
-    return self::all()
+    return self::all();
   }
 
   // UPDATE //
   static function update($updated_question) {
-    $query = "UPDATE questions SET question=$1, answer1=$2, answer2=$3, answer3=$4, answer4=$5, tags=$6, correctanswer=$7 WHERE id=$8";
-    $query_params = array($update_question->question, $update_question->answer1, $update_question->answer2, $update_question->answer3, $update_question->answer4, $update_question->tags, $update_question->correctanswer);
+    $query = "UPDATE questions SET question = $1, answer1 = $2, answer2 = $3, answer3 = $4, answer4 = $5, tags = $6, correctanswer = $7 WHERE id = $8";
+    $query_params = array($updated_question->question, $updated_question->answer1, $updated_question->answer2, $updated_question->answer3, $updated_question->answer4, $updated_question->tags, $updated_question->correctanswer, $updated_question->id);
     $result = pg_query_params($query, $query_params);
-    return self::all()
+    return self::all();
   }
 
   // DELETE //
@@ -87,7 +87,7 @@ class Questions {
     $query = "DELETE FROM questions WHERE id = $1";
     $query_params = array($id);
     $result = pg_query_params($query, $query_params);
-    return self::all()
+    return self::all();
   }
 }
 
