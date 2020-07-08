@@ -7,17 +7,34 @@ class NewQuestion extends React.Component {
 }
 
 class EditForm extends React.Component {
+  test = (event) => {
+    event.preventDefault();
+    this.setState({
+      updateQuestion: {
+        updatedQueston: this.updatedQuestion.value,
+        updatedAnswer1: this.updatedAnswer1.value,
+        updatedAnswer2: this.updatedAnswer2.value,
+        updatedAnswer3: this.updatedAnswer3.value,
+        updatedAnswer4: this.updatedAnswer4.value,
+        updatedCorrectAnswer: this.updatedCorrectAnswer.value,
+        updatedTags: this.updatedTags.value
+      }
+    }, () => {
+      console.log(this.state);
+    })
+  }
+
   render = () => {
     const { question } = this.props;
-    return <form className="edit-form" id={question.id}>
+    return <form className="edit-form" id={question.id} onSubmit={this.test}>
       <h2>Edit Question</h2>
-      <textarea defaultValue={question.question}></textarea>
-      <textarea defaultValue={question.answer1}></textarea>
-      <textarea defaultValue={question.answer2}></textarea>
-      <textarea defaultValue={question.answer3}></textarea>
-      <textarea defaultValue={question.answer4}></textarea>
-      <input type="text" defaultValue={question.correctanswer} />
-      <input type="text" defaultValue={question.tags} />
+      <textarea ref={input => this.updatedQuestion = input} defaultValue={question.question}></textarea>
+      <textarea ref={input => this.updatedAnswer1 = input} defaultValue={question.answer1}></textarea>
+      <textarea ref={input => this.updatedAnswer2 = input} defaultValue={question.answer2}></textarea>
+      <textarea ref={input => this.updatedAnswer3 = input} defaultValue={question.answer3}></textarea>
+      <textarea ref={input => this.updatedAnswer4 = input} defaultValue={question.answer4}></textarea>
+      <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
+      <input ref={input => this.updatedTags = input} type="text" defaultValue={question.tags} />
       <input type="submit" value="Change Question" />
       <a onClick={this.toggle}>Go Back</a>
     </form>
@@ -27,14 +44,14 @@ class EditForm extends React.Component {
 class EditButton extends React.Component {
   state = {
     display: 'button'
-  }  
-  
+  }
+
   toggle = () => {
     (this.state.display === 'button') ?
       this.setState({ display: 'form' }) :
       this.setState({display: 'button'})
   }
-  
+
   render = () => {
     const { question } = this.props;
     return (
@@ -108,7 +125,7 @@ class App extends React.Component {
         })
     })
   }
-  
+
   //UPDATE //
   updateQuestion = (event) => {
     axios.put('/sat/' + event.target.getAttribute('id')).then(
@@ -118,9 +135,9 @@ class App extends React.Component {
         })
       })
   }
-  
+
   updateValues = () => {
-  
+
   }
 
   //function that changes page view based on nav link
