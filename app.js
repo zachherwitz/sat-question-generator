@@ -1,8 +1,41 @@
 class NewQuestion extends React.Component {
+  createNewQuestionObject = (event) => {
+    event.preventDefault();
+    this.setState({
+      newQuestion: {
+        question: this.newQuestion.value,
+        answer1: this.newAnswer1.value,
+        answer2: this.newAnswer2.value,
+        answer3: this.newAnswer3.value,
+        answer4: this.newAnswer4.value,
+        correctanswer: this.newCorrectAnswer.value,
+        tag: this.newTags.value
+      }
+    }, () => {
+      console.log(this.state.newQuestion);
+      this.props.newform(this.state.newQuestion);
+    })
+  
+  }
   render = () => {
-    return <div className="home">
-      <h1> New Question Test </h1>
-    </div>
+    return <form className="new-form" onSubmit={this.createNewQuestionObject}>
+      <h2>New Question</h2>
+      <label>New Question: </label>
+      <textarea ref={input => this.newQuestion = input}></textarea>
+      <label>Answer Option 1: </label>
+      <textarea ref={input => this.newAnswer1 = input}></textarea>
+      <label>Answer Option 2: </label>
+      <textarea ref={input => this.newAnswer2 = input}></textarea>
+      <label>Answer Option 3: </label>
+      <textarea ref={input => this.newAnswer3 = input}></textarea>
+      <label>Answer Option 4: </label>
+      <textarea ref={input => this.newAnswer4 = input}></textarea>
+      <label>Correct Answer : </label>
+      <input type="text" ref={input => this.newCorrectAnswer = input} placeholder="Please Write : 1, 2, 3, or 4" />
+      <label>Tags</label>
+      <input type="text" ref={input => this.newTags = input} placeholder="Please Select: Math, History, English, or Science" />
+      <input type="submit" value="Add Question" />
+    </form>
   }
 }
 
@@ -148,6 +181,24 @@ class App extends React.Component {
         })
       })
   }
+  
+  // NEW //
+  newQuestion = (body) => {    
+    axios.post('/sat', {
+      question: body.question,
+      answer1: body.answer1,
+      answer2: body.answer2,
+      answer3: body.answer3,
+      answer4: body.answer4,
+      tags: body.tag,
+      correctanswer: body.correctanswer
+    }).then(
+      (response) => {
+        this.setState({
+          questions: response.data
+        })
+      })
+  }
 
   //function that changes page view based on nav link
   changeDisplay = (event) => {
@@ -170,7 +221,7 @@ class App extends React.Component {
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
         <Home /> : (this.state.display === 'new-question') ?
-          <NewQuestion /> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
+          <NewQuestion newform = {this.newQuestion}/> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
       }
     </div>
   }
