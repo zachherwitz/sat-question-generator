@@ -40,8 +40,8 @@ class NewQuestion extends React.Component {
         <label>Which Option is Correct?  </label>
         <input type="text" ref={input => this.newCorrectAnswer = input} placeholder="Please Choose : 1, 2, 3, or 4" required />
       </fieldset>
-      
-      
+
+
       <input type="submit" value="Add Question" />
     </form>
   }
@@ -90,7 +90,7 @@ class EditForm extends React.Component {
         <label>Correct Answer: </label>
         <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
       </fieldset>
-      
+
       <input type="submit" value="Change Question" />
       <button onClick={toggle}>Go Back</button>
     </form>
@@ -119,8 +119,8 @@ class EditButton extends React.Component {
 
 class AllQuestions extends React.Component {
   render = () => {
-    return <div className="home">
-      <h1> All Questions Test </h1>
+    return <div className="all-questions">
+      <h1> View All Questions </h1>
       <div>
         {this.props.questions.map((question, index) => {
           return <div key={index}>
@@ -171,8 +171,17 @@ class Home extends React.Component {
 
   render = () => {
     return <div className="home">
-      <button onClick={this.props.getQuestions}>LOAD</button>
-      <div className="home-category">{this.props.loadedQuestion ? "Category: " + this.props.loadedQuestion.tags.toUpperCase() : null}</div>
+      <button onClick={this.props.getQuestions} className="home-load-question-button">Load New Question</button>
+      {this.props.loadedQuestion ? null : <div className="splash">
+        <div className="splash-title">SAT QUESTION GENERATOR</div>
+        <div className="splash-text">
+          The SAT is an entrance exam used by most colleges and universities to make admissions decisions. The SAT is a multiple-choice, pencil-and-paper test created and administered by the College Board.
+
+          The purpose of the SAT is to measure a high school student's readiness for college, and provide colleges with one common data point that can be used to compare all applicants. College admissions officers will review standardized test scores alongside your high school GPA, the classes you took in high school, letters of recommendation from teachers or mentors, extracurricular activities, admissions interviews, and personal essays. How important SAT scores are in the college application process varies from school to school.
+        </div>
+      </div>}
+      <div className="home-category">{this.props.loadedQuestion ? "Category: " + this.props.loadedQuestion.tags.toUpperCase() : null }</div>
+
       {this.props.loadedQuestion
         ?
         <div className="home-question-container">
