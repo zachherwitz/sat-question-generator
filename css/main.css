@@ -110,6 +110,34 @@ body, html, main {
   padding: 10px;
 }
 
+.edit-form {
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+}
+.edit-form button {
+  background-color: #FFCA08;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #FFCA08;
+  border-top: 1px solid #FFCA08;
+  font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  color: #0085A1;
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  display: block;
+}
+.edit-form button:hover {
+  cursor: pointer;
+  background-color: #ffe06e;
+}
+
 nav {
   width: 100%;
   padding: 0.3rem 0 1rem 0;
