@@ -1,5 +1,4 @@
 nav {
-  width: 100%;
   padding: .3rem 0 1rem 0;
   border-bottom: 1px solid $light-yellow;
 
@@ -15,7 +14,7 @@ nav {
     display: grid;
     place-content: center;
 
-    a { 
+    a {
       font-size: $sm-size;
       letter-spacing: $sm-letter-spacing;
       font-family: $raleway;

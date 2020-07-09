@@ -1,4 +1,4 @@
-body, html, main {
+body, html, main, .container {
   @include hundredeverything;
   @include zeromarginpadding;
 }
@@ -21,6 +21,7 @@ body, html, main {
   font-family: $raleway;
   font-size: $md-size;
   color: $dark-blue;
+  line-height: 2rem;
 }
 
 .home-category {

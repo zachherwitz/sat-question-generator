@@ -233,6 +233,15 @@ class Nav extends React.Component {
   }
 }
 
+class Footer extends React.Component {
+  render = () => {
+    return <footer>
+      <div>Questions and Text copyright CollegeBoard</div>
+      <div>Site by Hannah Livnat and Zach Herwitz</div>
+    </footer>
+  }
+}
+
 class App extends React.Component {
   state = {
     questions: [],
@@ -325,11 +334,14 @@ class App extends React.Component {
   render = () => {
     return <div className="container">
       <Nav getQuestions={this.getQuestions} loadQuestions={this.loadQuestions} changedisplay={this.changeDisplay}/>
+      <div className='main-content'>
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
         <Home getQuestions={this.getQuestions} loadedQuestion={this.state.loadedQuestion} /> : (this.state.display === 'new-question') ?
           <NewQuestion returnHome={this.returnHome} newform = {this.newQuestion}/> : <AllQuestions returnHome={this.returnHome} deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
       }
+      </div>
+      <Footer />
     </div>
   }
 }

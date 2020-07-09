@@ -1,6 +1,8 @@
 .all-questions {
   width: 90%;
+  height: 100%;
   margin: 2rem auto;
+  position: relative;
 
   h1 {
     @extend .splash-title;
@@ -27,7 +29,7 @@
     margin: 0 auto;
     display: grid;
     gap: 1rem;
-    grid-auto-flow: column;  
+    grid-auto-flow: column;
     border: none;
   }
 
