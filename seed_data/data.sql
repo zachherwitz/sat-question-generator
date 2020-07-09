@@ -8,7 +8,7 @@ VALUES
     'C) The estimated yearly decrease in the average number of students per classroom',
     'D) The estimated yearly increase in the average number of students per classroom',
     'math',
-    'd');
+    '4');
 
 
 INSERT INTO questions
@@ -23,7 +23,7 @@ sent by Armand and Tyrone on Saturday afternoon?',
     'C) 5m + 4p',
     'D) 4m + 5p',
     'math',
-    'a');
+    '1');
 
 
 INSERT INTO questions
@@ -36,7 +36,7 @@ VALUES
     'C) y = 2a - 1/2',
     'D) y = (1/2)a + 1',
     'math',
-    'a');
+    '1');
 
 
 INSERT INTO questions
@@ -49,7 +49,7 @@ VALUES
     'C) 2x^3 + x^2 + 11x + 11',
     'D) 2x^3 + 2x^2 + 18x + 12',
     'math',
-    'c');
+    '3');
 
 
 INSERT INTO questions
@@ -62,7 +62,7 @@ VALUES
     'C) a = sqrt(x)',
     'D) a = -x^2',
     'math',
-    'b');
+    '2');
 
 
 INSERT INTO questions
@@ -75,7 +75,7 @@ VALUES
     'C) y = (2(x - 3)^2) + (-2) ',
     'D) y = (x - 2)(2x - 8)',
     'math',
-    'c');
+    '3');
 
 INSERT INTO questions
   (question, answer1, answer2, answer3, answer4, tags, correctanswer)
@@ -87,7 +87,7 @@ VALUES
     'C) 74 + 154i',
     'D) 122 + 154i',
     'math',
-    'd');
+    '4');
 
 
 
@@ -101,7 +101,7 @@ VALUES
     'C) 1/2',
     'D) 11/9',
     'math',
-    'c');
+    '3');
 
 
 INSERT INTO questions
@@ -114,7 +114,7 @@ VALUES
     'C) The portion of the job that the faster printer would complete in two hours',
     'D) The time, in hours, that it takes the slower printer to complete 1 fifth of the printing job',
     'math',
-    'b');
+    '2');
 
 
 INSERT INTO questions
@@ -127,7 +127,7 @@ VALUES
     'C) 2pi + x',
     'D) x - 2pi',
     'math',
-    'b');
+    '2');
 
 
 INSERT INTO questions
@@ -140,7 +140,7 @@ VALUES
     'C) Stoplight timing is coordinated to alleviate rush hour traffic jams in a congested downtown area.',
     'D) In a congested downtown area, stoplight timing is coordinated to alleviate rush hour traffic jams.',
     'writing',
-    'c');
+    '3');
 
 
 INSERT INTO questions
@@ -153,7 +153,7 @@ VALUES
     'C) occurs, they are',
     'D) occurs, it is',
     'writing',
-    'd');
+    '4');
 
 INSERT INTO questions
   (question, answer1, answer2, answer3, answer4, tags, correctanswer)
@@ -165,7 +165,7 @@ VALUES
     'C) designing.',
     'D) design',
     'writing',
-    'c');
+    '3');
 
 
 INSERT INTO questions
@@ -178,20 +178,7 @@ VALUES
     'C) and the majority are employed by government agencies.',
     'D) DELETE the underlined portion and end the sentence with a period.',
     'writing',
-    'a');
-
-
-INSERT INTO questions
-  (question, answer1, answer2, answer3, answer4, tags, correctanswer)
-VALUES
-  (
-    'Traffic to and from that location would increase at the beginning and end of work shifts. The transportation [[planner’s job]], might involve conducting a traffic count to determine the daily number of vehicles traveling on the road to the new factory -- By changing the bracketed segment, which choice best maintains the sentence pattern already establilshed in the paragraph?',
-    'A) NO CHANGE',
-    'B) planner\'s job',
-    'C) planners job,',
-    'D) planners job',
-    'writing',
-    'b');
+    '1');
 
 INSERT INTO questions
   (question, answer1, answer2, answer3, answer4, tags, correctanswer)
@@ -203,7 +190,7 @@ VALUES
     'C) road as it is now currently designed',
     'D) current design of the road',
     'writing',
-    'd');
+    '4');
 
 INSERT INTO questions
   (question, answer1, answer2, answer3, answer4, tags, correctanswer)
@@ -215,7 +202,7 @@ VALUES
     'C) Furthermore,',
     'D) Similarly,',
     'writing',
-    'b');
+    '2');
 
 
 INSERT INTO questions
@@ -228,7 +215,7 @@ VALUES
     'C) constrained,',
     'D) siphoned,',
     'reading',
-    'c');
+    '3');
 
 
 INSERT INTO questions
@@ -241,7 +228,7 @@ VALUES
     'C) To contend that Hamilton was too timid in his support for the concept of impeachment,',
     'D) To argue that impeachment cases are decided more on the basis of politics than on justice,',
     'reading',
-    'a');
+    '1');
 
 
 INSERT INTO questions
@@ -254,4 +241,4 @@ VALUES
     'C) introduce a scientific principle in order to show how an experiment’s outcomes validated that principle.',
     'D) present seemingly contradictory stances in order to show how they can be reconciled empirically.',
     'reading',
-    'b');
+    '2');
