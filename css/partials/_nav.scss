@@ -1,0 +1,33 @@
+nav {
+  width: 100%;
+  padding: .3rem 0 1rem 0;
+  border-bottom: 1px solid $yellow;
+
+  ul {
+  @include ulstyle;
+  @include hundredeverything;
+  margin-left: auto;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+
+  li {
+    display: grid;
+    place-content: center;
+
+    a { 
+      font-size: $sm-size;
+      letter-spacing: $sm-letter-spacing;
+      font-family: $raleway;
+      text-transform: uppercase;
+      color: $dark-blue;
+      padding: .3rem;
+
+      &:hover {
+        cursor: pointer;
+        background-color: lighten($dark-blue, 60%);
+      }
+    }
+  }
+  }
+}
