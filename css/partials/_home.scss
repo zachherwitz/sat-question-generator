@@ -3,6 +3,26 @@ body, html, main {
   @include zeromarginpadding;
 }
 
+.splash {
+  padding: 0 5rem;
+}
+
+.splash-title {
+  font-family: $merriweather;
+  text-align: center;
+  color: $dark-blue;
+  font-size: $xl-size;
+  text-decoration: underline;
+}
+
+.splash-text {
+  text-align: center;
+  margin-top: 2rem;
+  font-family: $raleway;
+  font-size: $md-size;
+  color: $dark-blue;
+}
+
 .home-category {
   display: flex;
   justify-content: center;
@@ -30,6 +50,7 @@ body, html, main {
   display: flex;
   flex-direction: column;
   background-color: rgb(245, 245, 245);
+  box-shadow: 2px 2px 3px #7e7d7d;
   padding: 10px;
 }
 
@@ -48,5 +69,35 @@ body, html, main {
 }
 
 .home-check-answer-button {
-  margin-top: 10px;
+  font-size: $button-text;
+  letter-spacing: $sm-letter-spacing;
+  color: #fff;
+  font-family: $raleway;
+  font-weight: $normal;
+  background-color: $dark-blue;
+  outline: none;
+  border: none;
+  box-shadow: 2px 2px 4px #7e7d7d;
+  width: 60%;
+  display: block;
+  margin: .5rem auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.home-load-question-button {
+  font-size: $button-text;
+  letter-spacing: $sm-letter-spacing;
+  color: #fff;
+  font-family: $raleway;
+  font-weight: $normal;
+  background-color: $dark-blue;
+  outline: none;
+  border: none;
+  box-shadow: 2px 2px 4px #7e7d7d;
+  width: 20%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 5px;
+  padding: 10px;
 }
