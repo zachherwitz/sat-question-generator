@@ -14,6 +14,7 @@ class NewQuestion extends React.Component {
     }, () => {
       console.log(this.state.newQuestion);
       this.props.newform(this.state.newQuestion);
+      this.props.returnHome();
     })
 
   }
@@ -40,7 +41,7 @@ class NewQuestion extends React.Component {
 }
 
 class EditForm extends React.Component {
-  test = (event) => {
+  submitEdit = (event) => {
     event.preventDefault();
     this.setState({
       updateQuestion: {
@@ -55,12 +56,13 @@ class EditForm extends React.Component {
     }, () => {
         console.log(this.state.updateQuestion);
         this.props.update(this.props.question.id, this.state.updateQuestion);
+        this.props.toggle();
     })
   }
 
   render = () => {
     const { question, toggle } = this.props;
-    return <form className="edit-form" id={question.id} onSubmit={this.test}>
+    return <form className="edit-form" id={question.id} onSubmit={this.submitEdit}>
       <h2>Edit Question</h2>
       <textarea ref={input => this.updatedQuestion = input} defaultValue={question.question}></textarea>
       <textarea ref={input => this.updatedAnswer1 = input} defaultValue={question.answer1}></textarea>
@@ -70,7 +72,7 @@ class EditForm extends React.Component {
       <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
       <input ref={input => this.updatedTags = input} type="text" defaultValue={question.tags} />
       <input type="submit" value="Change Question" />
-      <a onClick={toggle}>Go Back</a>
+      <button onClick={toggle}>Go Back</button>
     </form>
   }
 }
@@ -134,7 +136,7 @@ class Home extends React.Component {
         document.getElementById("2-guess").removeAttribute('class')
         document.getElementById("3-guess").removeAttribute('class')
         document.getElementById("4-guess").removeAttribute('class')
-      }, 1000)
+      }, 3000)
 
     } else {
       document.getElementById(this.state.guess + "-guess").setAttribute('class', 'red')
@@ -194,6 +196,12 @@ class App extends React.Component {
   state = {
     questions: [],
     display: 'home'
+  }
+
+  returnHome = (event) => {
+    this.setState({
+      display: 'home'
+    })
   }
 
   // READ //
@@ -279,7 +287,7 @@ class App extends React.Component {
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
         <Home getQuestions={this.getQuestions} loadedQuestion={this.state.loadedQuestion} /> : (this.state.display === 'new-question') ?
-          <NewQuestion newform = {this.newQuestion}/> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
+          <NewQuestion returnHome={this.returnHome} newform = {this.newQuestion}/> : <AllQuestions returnHome={this.returnHome} deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
       }
     </div>
   }
