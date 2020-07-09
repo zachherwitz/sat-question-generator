@@ -4,7 +4,7 @@ $buttonpadding: 4px 12px;
 //ul padding and layout
 @mixin ulstyle {
   list-style-type: none;
-  padding: 0;
+  padding-left: 0;
 }
 
 //zero margin and padding
