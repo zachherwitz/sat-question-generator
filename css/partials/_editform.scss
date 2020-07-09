@@ -1,0 +1,31 @@
+.edit-form {
+  @extend .new-form;
+  background-color: #fff;
+  position: absolute; 
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+
+  button {
+    background-color: $yellow;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $yellow;
+    border-top: 1px solid $yellow;
+    font-size: $button-text;
+    font-family: $raleway;
+    color: $dark-blue;
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($yellow, 20%);
+    }
+  }
+}
+
