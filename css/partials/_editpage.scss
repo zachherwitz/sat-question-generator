@@ -1,25 +1,50 @@
 .all-questions {
   width: 90%;
-  margin: auto;
+  margin: 2rem auto;
+
+  h1 {
+    @extend .splash-title;
+  }
+
+  div > div{
+   background-color: rgb(245, 245, 245);
+    border: 3px solid $dark-blue;
+    border-radius: 5px;
+    margin: 1rem 0;
+    padding: 10px;
+  }
 
   p {
-      @include questionfont($lg-size, 2rem)
+    color: $dark-blue;
+    font-size: $lg-size;
+    letter-spacing: $lg-letter-spacing;
+    font-family: $merriweather;
+    margin: 1rem 0 1rem 2rem;
+  }
+
+  .button-container {
+    width: 30%;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+    grid-auto-flow: column;  
+    border: none;
   }
 
   button {
-    background-color: $yellow;
+    background-color: $dark-blue;
     outline: none;
-    border: none;
-    border-bottom: 1px solid $yellow;
-    border-top: 1px solid $yellow;
+    border: 1px solid #fff;
+    border-radius: 24px;
     font-size: $button-text;
     font-family: $raleway;
-    color: $dark-blue;
+    color: #fff;
     margin: .5rem 1rem;
+    padding: 10px;
 
     &:hover {
       cursor: pointer;
-      background-color: lighten($yellow, 20%);
+      background-color: $yellow;
     }
   }
 }

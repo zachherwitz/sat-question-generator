@@ -1,4 +1,6 @@
 $light-blue: #98DCF5;
 $dark-blue: #0085A1;
-$yellow: #FFCA08;
+$light-yellow: #FFCA08;
+$yellow: darken($light-yellow, 10%);
+
 
