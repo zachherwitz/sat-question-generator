@@ -1,18 +1,84 @@
 .new-form {
   width: 90%;
-  margin: auto;
+  margin: 3rem auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
 
-  h2 {
-    font-size: 1.5rem;
-    font-family: $merriweather;
-    color: $dark-blue;
-    letter-spacing: $lg-letter-spacing;
-    text-transform: uppercase;
+
+  //h2 {
+  //  font-size: $lg-size;
+  //  font-family: $merriweather;
+  //  color: $dark-blue;
+  //  letter-spacing: $lg-letter-spacing;
+  //  text-transform: uppercase;
+  //  text-align: center;
+  //}
+
+  fieldset {
+    border: none;
+    border-top: 2px groove $light-blue;
+
+    legend {
+      font-size: $md-size;
+      letter-spacing: $sm-letter-spacing;
+      font-family: $merriweather;
+      padding: 0 10px;
+      color: $dark-blue;
+    }
+  }
+
+  label {
+    margin-left: 5%;
+    font-family: $raleway;
+    padding-top: 20px;
   }
 
   textarea, input[type="text"] {
     width: 90%;
-    margin: auto;
-    display: block
+    display: block;
+    margin: 10px auto 20px auto;
+    background-color: #efefef;
+    padding: 10px;
+    border: none;
+    outline: none;
+    
+    &:focus, &:active {
+      border: .5px solid $yellow;
+    }
+  }
+
+  textarea {
+    resize: vertical;
+    height: 50px;
+  }
+
+  input[type="submit"] {
+    font-size: $button-text;
+    letter-spacing: $sm-letter-spacing;
+    color: #fff;
+    font-family: $raleway;
+    font-weight: $normal;
+    background-color: $dark-blue;
+    outline: none;
+    border: none;
+    box-shadow: 2px 2px 4px #7e7d7d;
+    width: 60%;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 5px;
+    padding: 10px;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lighten($dark-blue, 5%);  
+    }
+
+    &:active {
+      cursor: pointer;
+      box-shadow: inset 2px 2px 4px #7e7d7d;
+
+    }
+    
   }
 }

@@ -91,21 +91,68 @@ nav ul li a:hover {
   background-color: #d4f8ff;
 }
 
-.new-form {
+.new-form, .edit-form {
   width: 90%;
-  margin: auto;
+  margin: 3rem auto;
+  padding: 30px 15px;
+  box-sizing: border-box;
+  border-radius: 10px;
 }
-.new-form h2 {
-  font-size: 1.5rem;
+.new-form fieldset, .edit-form fieldset {
+  border: none;
+  border-top: 2px groove #98DCF5;
+}
+.new-form fieldset legend, .edit-form fieldset legend {
+  font-size: 1.2rem;
+  letter-spacing: 0.01rem;
   font-family: "Merriweather Sans", sans-serif;
+  padding: 0 10px;
   color: #0085A1;
-  letter-spacing: 0.03rem;
-  text-transform: uppercase;
 }
-.new-form textarea, .new-form input[type=text] {
+.new-form label, .edit-form label {
+  margin-left: 5%;
+  font-family: "Raleway", sans-serif;
+  padding-top: 20px;
+}
+.new-form textarea, .edit-form textarea, .new-form input[type=text], .edit-form input[type=text] {
   width: 90%;
-  margin: auto;
   display: block;
+  margin: 10px auto 20px auto;
+  background-color: #efefef;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+.new-form textarea:focus, .edit-form textarea:focus, .new-form textarea:active, .edit-form textarea:active, .new-form input[type=text]:focus, .edit-form input[type=text]:focus, .new-form input[type=text]:active, .edit-form input[type=text]:active {
+  border: 0.5px solid #FFCA08;
+}
+.new-form textarea, .edit-form textarea {
+  resize: vertical;
+  height: 50px;
+}
+.new-form input[type=submit], .edit-form input[type=submit] {
+  font-size: 1rem;
+  letter-spacing: 0.01rem;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  background-color: #0085A1;
+  outline: none;
+  border: none;
+  box-shadow: 2px 2px 4px #7e7d7d;
+  width: 60%;
+  display: block;
+  margin: 2rem auto;
+  border-radius: 5px;
+  padding: 10px;
+}
+.new-form input[type=submit]:hover, .edit-form input[type=submit]:hover {
+  cursor: pointer;
+  background-color: #009abb;
+}
+.new-form input[type=submit]:active, .edit-form input[type=submit]:active {
+  cursor: pointer;
+  box-shadow: inset 2px 2px 4px #7e7d7d;
 }
 
 .green {

@@ -20,21 +20,28 @@ class NewQuestion extends React.Component {
   }
   render = () => {
     return <form className="new-form" onSubmit={this.createNewQuestionObject}>
-      <h2>New Question</h2>
-      <label>New Question: </label>
-      <textarea ref={input => this.newQuestion = input}></textarea>
-      <label>Answer Option 1: </label>
-      <textarea ref={input => this.newAnswer1 = input}></textarea>
-      <label>Answer Option 2: </label>
-      <textarea ref={input => this.newAnswer2 = input}></textarea>
-      <label>Answer Option 3: </label>
-      <textarea ref={input => this.newAnswer3 = input}></textarea>
-      <label>Answer Option 4: </label>
-      <textarea ref={input => this.newAnswer4 = input}></textarea>
-      <label>Correct Answer : </label>
-      <input type="text" ref={input => this.newCorrectAnswer = input} placeholder="Please Write : 1, 2, 3, or 4" />
-      <label>Tags</label>
-      <input type="text" ref={input => this.newTags = input} placeholder="Please Select: Math, History, English, or Science" />
+      <fieldset>
+        <legend>Question </legend>
+        <label>Question: </label>
+        <textarea ref={input => this.newQuestion = input} required></textarea>
+        <label>What Subject Does This Fall Under?  </label>
+        <input type="text" ref={input => this.newTags = input} placeholder="Please Select: Math, History, English, or Science" required />
+      </fieldset>
+      <fieldset>
+        <legend>Answer </legend>
+        <label>Option 1: </label>
+        <textarea ref={input => this.newAnswer1 = input} required></textarea>
+        <label>Option 2: </label>
+        <textarea ref={input => this.newAnswer2 = input} required></textarea>
+        <label>Option 3: </label>
+        <textarea ref={input => this.newAnswer3 = input} required></textarea>
+        <label>Option 4: </label>
+        <textarea ref={input => this.newAnswer4 = input} required></textarea>
+        <label>Which Option is Correct?  </label>
+        <input type="text" ref={input => this.newCorrectAnswer = input} placeholder="Please Choose : 1, 2, 3, or 4" required />
+      </fieldset>
+      
+      
       <input type="submit" value="Add Question" />
     </form>
   }
@@ -63,14 +70,27 @@ class EditForm extends React.Component {
   render = () => {
     const { question, toggle } = this.props;
     return <form className="edit-form" id={question.id} onSubmit={this.submitEdit}>
-      <h2>Edit Question</h2>
-      <textarea ref={input => this.updatedQuestion = input} defaultValue={question.question}></textarea>
-      <textarea ref={input => this.updatedAnswer1 = input} defaultValue={question.answer1}></textarea>
-      <textarea ref={input => this.updatedAnswer2 = input} defaultValue={question.answer2}></textarea>
-      <textarea ref={input => this.updatedAnswer3 = input} defaultValue={question.answer3}></textarea>
-      <textarea ref={input => this.updatedAnswer4 = input} defaultValue={question.answer4}></textarea>
-      <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
-      <input ref={input => this.updatedTags = input} type="text" defaultValue={question.tags} />
+      <fieldset>
+        <legend>Question</legend>
+        <label>Question: </label>
+        <textarea ref={input => this.updatedQuestion = input} defaultValue={question.question}></textarea>
+        <label>What Subject Does This Fall Under?  </label>
+        <input ref={input => this.updatedTags = input} type="text" defaultValue={question.tags} />
+      </fieldset>
+      <fieldset>
+        <legend>Answer</legend>
+        <label>Option 1: </label>
+        <textarea ref={input => this.updatedAnswer1 = input} defaultValue={question.answer1}></textarea>
+        <label>Option 2: </label>
+        <textarea ref={input => this.updatedAnswer2 = input} defaultValue={question.answer2}></textarea>
+        <label>Option 3: </label>
+        <textarea ref={input => this.updatedAnswer3 = input} defaultValue={question.answer3}></textarea>
+        <label>Option 4: </label>
+        <textarea ref={input => this.updatedAnswer4 = input} defaultValue={question.answer4}></textarea>
+        <label>Correct Answer: </label>
+        <input ref={input => this.updatedCorrectAnswer = input} type="text" defaultValue={question.correctanswer} />
+      </fieldset>
+      
       <input type="submit" value="Change Question" />
       <button onClick={toggle}>Go Back</button>
     </form>
