@@ -151,22 +151,32 @@ class Home extends React.Component {
 
   render = () => {
     return <div className="home">
-      <h1> HOME </h1>
       <button onClick={this.props.getQuestions}>LOAD</button>
+      <div className="home-category">{this.props.loadedQuestion ? "Category: " + this.props.loadedQuestion.tags.toUpperCase() : null}</div>
       {this.props.loadedQuestion
         ?
-        <div>
-          <p>{this.props.loadedQuestion.question}</p>
+        <div className="home-question-container">
+          <div className="home-question">{this.props.loadedQuestion.question}</div>
           <form onSubmit={this.checkAnswer}>
-            <input onClick={this.guess} id="1" type="radio" name="answers" value="1"/>
-            <label id="1-guess" for="1">{this.props.loadedQuestion.answer1}</label>
-            <input onClick={this.guess} id="2" type="radio" name="answers" value="2"/>
-            <label id="2-guess" for="2">{this.props.loadedQuestion.answer2}</label>
-            <input onClick={this.guess} id="3" type="radio" name="answers" value="3"/>
-            <label id="3-guess" for="3">{this.props.loadedQuestion.answer3}</label>
-            <input onClick={this.guess} id="4" type="radio" name="answers" value="4"/>
-            <label id="4-guess" for="4">{this.props.loadedQuestion.answer4}</label>
-            <input type="submit" value="Check Answer"/>
+            <div className="home-answer-container">
+              <div className="home-answer">
+                <input onClick={this.guess} id="1" type="radio" name="answers" value="1"/>
+                <label id="1-guess" for="1">{this.props.loadedQuestion.answer1}</label>
+              </div>
+              <div className="home-answer">
+                <input onClick={this.guess} id="2" type="radio" name="answers" value="2"/>
+                <label id="2-guess" for="2">{this.props.loadedQuestion.answer2}</label>
+              </div>
+              <div className="home-answer">
+                <input onClick={this.guess} id="3" type="radio" name="answers" value="3"/>
+                <label id="3-guess" for="3">{this.props.loadedQuestion.answer3}</label>
+              </div>
+              <div className="home-answer">
+                <input onClick={this.guess} id="4" type="radio" name="answers" value="4"/>
+                <label id="4-guess" for="4">{this.props.loadedQuestion.answer4}</label>
+              </div>
+              <input className="home-check-answer-button" type="submit" value="Check Answer"/>
+            </div>
           </form>
         </div>
         :
