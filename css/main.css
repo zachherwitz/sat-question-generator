@@ -87,6 +87,11 @@ body, html, main {
   background-color: #ffe06e;
 }
 
+.all-questions {
+  width: 90%;
+  margin: auto;
+}
+
 nav {
   width: 100%;
   padding: 0.3rem 0 1rem 0;
