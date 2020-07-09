@@ -3,32 +3,43 @@
   margin: 3rem auto;
   padding: 30px 15px;
   box-sizing: border-box;
-  background-color: whitesmoke;
-  box-shadow: 2px 2px 4px #7e7d7d;
   border-radius: 10px;
 
 
-  h2 {
-    font-size: 1.5rem;
-    font-family: $merriweather;
-    color: $dark-blue;
-    letter-spacing: $lg-letter-spacing;
-    text-transform: uppercase;
-    text-align: center;
+  //h2 {
+  //  font-size: $lg-size;
+  //  font-family: $merriweather;
+  //  color: $dark-blue;
+  //  letter-spacing: $lg-letter-spacing;
+  //  text-transform: uppercase;
+  //  text-align: center;
+  //}
+
+  fieldset {
+    border: none;
+    border-top: 2px groove $light-blue;
+
+    legend {
+      font-size: $md-size;
+      letter-spacing: $sm-letter-spacing;
+      font-family: $merriweather;
+      padding: 0 10px;
+      color: $dark-blue;
+    }
   }
 
   label {
     margin-left: 5%;
     font-family: $raleway;
+    padding-top: 20px;
   }
 
   textarea, input[type="text"] {
     width: 90%;
     display: block;
     margin: 10px auto 20px auto;
+    background-color: #efefef;
     padding: 10px;
-    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
-    border-radius: 15px;
     border: none;
     outline: none;
     
@@ -52,7 +63,7 @@
     outline: none;
     border: none;
     box-shadow: 2px 2px 4px #7e7d7d;
-    width: 80%;
+    width: 60%;
     display: block;
     margin: 2rem auto;
     border-radius: 5px;
