@@ -19,7 +19,7 @@ No installation needed.
 
 ## FEATURES / TECHNOLOGY USED
 
-Languages: PHP, JavaScript, HTML, CSS / Sass
-Library: React
-Database: Postgresql
+* Languages: PHP, JavaScript, HTML, CSS / Sass
+* Library: React
+* Database: Postgresql
 
