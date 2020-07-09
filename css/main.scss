@@ -1,7 +1,16 @@
+//IMPORT ALL PARTIALS
+@import 'partials/color';
+@import 'partials/font';
+@import 'partials/layout';
+@import 'partials/home';
+@import 'partials/editform';
+@import 'partials/editpage';
+@import 'partials/nav';
+@import 'partials/newform';
 .green {
-  color: green
+  color: green;
 }
 
 .red {
-  color: red
+  color: red;
 }
