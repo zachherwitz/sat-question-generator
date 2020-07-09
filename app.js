@@ -119,8 +119,8 @@ class EditButton extends React.Component {
 
 class AllQuestions extends React.Component {
   render = () => {
-    return <div className="home">
-      <h1> All Questions Test </h1>
+    return <div className="all-questions">
+      <h1> View All Questions </h1>
       <div>
         {this.props.questions.map((question, index) => {
           return <div key={index}>
