@@ -138,6 +138,32 @@ body, html, main {
   background-color: #ffe06e;
 }
 
+.all-questions {
+  width: 90%;
+  margin: auto;
+}
+.all-questions p {
+  font-size: 1.5rem;
+  letter-spacing: 0.01rem;
+  color: #0085A1;
+  line-height: 2rem;
+}
+.all-questions button {
+  background-color: #FFCA08;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #FFCA08;
+  border-top: 1px solid #FFCA08;
+  font-size: 1rem;
+  font-family: "Raleway", sans-serif;
+  color: #0085A1;
+  margin: 0.5rem 1rem;
+}
+.all-questions button:hover {
+  cursor: pointer;
+  background-color: #ffe06e;
+}
+
 nav {
   width: 100%;
   padding: 0.3rem 0 1rem 0;
