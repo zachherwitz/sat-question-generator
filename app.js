@@ -15,7 +15,7 @@ class NewQuestion extends React.Component {
       console.log(this.state.newQuestion);
       this.props.newform(this.state.newQuestion);
     })
-  
+
   }
   render = () => {
     return <form className="new-form" onSubmit={this.createNewQuestionObject}>
@@ -112,13 +112,71 @@ class AllQuestions extends React.Component {
   }
 }
 
+
+
+
+
+
+
 class Home extends React.Component {
+  state = {
+    guess: ''
+  }
+
+  checkAnswer = (event) => {
+    event.preventDefault()
+    if(this.state.guess === this.props.loadedQuestion.correctanswer) {
+      console.log('CORRECT GUESS!');
+      document.getElementById(this.state.guess + "-guess").setAttribute('class', 'green')
+      setTimeout(() => {
+        this.props.getQuestions()
+        document.getElementById("1-guess").removeAttribute('class')
+        document.getElementById("2-guess").removeAttribute('class')
+        document.getElementById("3-guess").removeAttribute('class')
+        document.getElementById("4-guess").removeAttribute('class')
+      }, 1000)
+
+    } else {
+      document.getElementById(this.state.guess + "-guess").setAttribute('class', 'red')
+    }
+  }
+
+  guess = (event) => {
+    this.setState({
+      guess:event.target.id
+    })
+  }
+
   render = () => {
     return <div className="home">
-      <h1> Home Page Test </h1>
+      <h1> HOME </h1>
+      <button onClick={this.props.getQuestions}>LOAD</button>
+      {this.props.loadedQuestion
+        ?
+        <div>
+          <p>{this.props.loadedQuestion.question}</p>
+          <form onSubmit={this.checkAnswer}>
+            <input onClick={this.guess} id="1" type="radio" name="answers" value="1"/>
+            <label id="1-guess" for="1">{this.props.loadedQuestion.answer1}</label>
+            <input onClick={this.guess} id="2" type="radio" name="answers" value="2"/>
+            <label id="2-guess" for="2">{this.props.loadedQuestion.answer2}</label>
+            <input onClick={this.guess} id="3" type="radio" name="answers" value="3"/>
+            <label id="3-guess" for="3">{this.props.loadedQuestion.answer3}</label>
+            <input onClick={this.guess} id="4" type="radio" name="answers" value="4"/>
+            <label id="4-guess" for="4">{this.props.loadedQuestion.answer4}</label>
+            <input type="submit" value="Check Answer"/>
+          </form>
+        </div>
+        :
+        null}
     </div>
   }
 }
+
+
+
+
+
 class Nav extends React.Component {
   render = () => {
     const {changedisplay, loadQuestions} = this.props;
@@ -144,7 +202,8 @@ class App extends React.Component {
       (response) => {
         console.log(response.data);
         this.setState({
-          questions:response.data
+          questions:response.data,
+          loadedQuestion: response.data[Math.floor(Math.random() * response.data.length)]
         })
       }
     )
@@ -181,9 +240,9 @@ class App extends React.Component {
         })
       })
   }
-  
+
   // NEW //
-  newQuestion = (body) => {    
+  newQuestion = (body) => {
     axios.post('/sat', {
       question: body.question,
       answer1: body.answer1,
@@ -214,13 +273,12 @@ class App extends React.Component {
     this.changeDisplay(event);
     this.getQuestions();
   }
-
   render = () => {
     return <div className="container">
       <Nav getQuestions={this.getQuestions} loadQuestions={this.loadQuestions} changedisplay={this.changeDisplay}/>
       {/* ternary statement determines what goes here */}
       {(this.state.display === 'home') ?
-        <Home /> : (this.state.display === 'new-question') ?
+        <Home getQuestions={this.getQuestions} loadedQuestion={this.state.loadedQuestion} /> : (this.state.display === 'new-question') ?
           <NewQuestion newform = {this.newQuestion}/> : <AllQuestions deleteQuestion={this.deleteQuestion} questions={this.state.questions} update={this.updateQuestion}/>
       }
     </div>
