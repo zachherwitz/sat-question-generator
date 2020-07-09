@@ -1,0 +1,19 @@
+//padding
+$buttonpadding: 4px 12px;
+
+//ul padding and layout
+@mixin ulstyle {
+  list-style-type: none;
+  padding: 0;
+}
+
+//zero margin and padding
+@mixin zeromarginpadding {
+  padding: 0;
+  margin: 0;
+}
+
+@mixin hundredeverything {
+  width: 100%;
+  height: 100%;
+}

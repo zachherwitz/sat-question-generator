@@ -1,7 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans&family=Raleway');
 
+//font-families
 $merriweather: ('Merriweather Sans', sans-serif);
 $raleway: ('Raleway', sans-serif);
 
-$nav-links: 1.3rem;
-$button-text: 1rem;
+//font sizes
+$xs-size: .8rem;
+$sm-size: 1rem;
+$md-size: 1.2rem;
+$lg-size: 1.5rem;
+$xl-size: 2rem;
+
+//letter-spacing
+$sm-letter-spacing: .01rem;
+$lg-letter-spacing: .03rem;
+
+//line spacing
+$sm-line-spacing: 1.2rem;
+$md-line-spacing: 1.5rem;
+
+//font weights
+$bold: 900;
+$light: 400;
+$normal: 700;
+
+//specific font components
+$nav-links: $md-size;
+$button-text: $sm-size;
+
+//question font mixin
+@mixin questionfont($size, $linespacing) {
+  font-size: $size;
+  letter-spacing: $sm-letter-spacing;
+  color: $dark-blue;
+  line-height: $linespacing;
+
+}
