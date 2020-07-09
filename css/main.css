@@ -17,8 +17,9 @@ body, html, main {
 }
 
 .home-question-container {
-  display: flex;
+  display: grid;
   padding: 0 10vw;
+  grid-template-columns: 2fr 1fr;
 }
 
 .home-question {
