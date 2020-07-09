@@ -2,3 +2,50 @@ body, html, main {
   @include hundredeverything;
   @include zeromarginpadding;
 }
+
+.home-category {
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+  color: $yellow;
+  font-size: $xl-size;
+  font-family: $merriweather;
+  margin: 10px 0 40px 0;
+
+}
+
+.home-question-container {
+  display: flex;
+  padding: 0 10vw;
+}
+
+.home-question {
+  @include questionfont($xl-size, 2rem)
+}
+
+.home-answer-container {
+  width: 30vw;
+  margin-left: 5vw;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(245, 245, 245);
+  padding: 10px;
+}
+
+.home-answer {
+  @include questionfont($md-size, $md-line-spacing);
+  margin: 10px 0;
+}
+
+.home-answer > input {
+  margin-right: 10px;
+}
+
+.home-answer:hover {
+  cursor: pointer;
+  background-color: lighten($dark-blue, 60%);
+}
+
+.home-check-answer-button {
+  margin-top: 10px;
+}
