@@ -124,9 +124,11 @@ class AllQuestions extends React.Component {
       <div>
         {this.props.questions.map((question, index) => {
           return <div key={index}>
-            <p>{question.question}</p><br/>
-            <EditButton update={this.props.update} question={question}/>
-            <button id={question.id} onClick={this.props.deleteQuestion}>DELETE</button>
+            <p>{question.question}</p><br />
+            <div className="button-container">
+              <EditButton update={this.props.update} question={question}/>
+              <button id={question.id} onClick={this.props.deleteQuestion}>DELETE</button>
+            </div>
           </div>
         })}
       </div>

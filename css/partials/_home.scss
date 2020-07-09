@@ -83,6 +83,10 @@ body, html, main {
   margin: .5rem auto;
   border-radius: 5px;
   padding: 10px;
+
+    &:hover {
+    cursor: pointer;
+    background-color: $yellow  }
 }
 
 .home-load-question-button {
@@ -100,4 +104,9 @@ body, html, main {
   margin: 2rem auto;
   border-radius: 5px;
   padding: 10px;
+
+    &:hover {
+    cursor: pointer;
+    background-color: $yellow;
+  }
 }

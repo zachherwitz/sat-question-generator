@@ -10,7 +10,7 @@ body, html, main {
   padding: 0 5rem;
 }
 
-.splash-title {
+.splash-title, .all-questions h1 {
   font-family: "Merriweather Sans", sans-serif;
   text-align: center;
   color: #0085A1;
@@ -30,7 +30,7 @@ body, html, main {
   display: flex;
   justify-content: center;
   text-decoration: underline;
-  color: #FFCA08;
+  color: #d4a700;
   font-size: 2rem;
   font-family: "Merriweather Sans", sans-serif;
   margin: 10px 0 40px 0;
@@ -92,6 +92,10 @@ body, html, main {
   border-radius: 5px;
   padding: 10px;
 }
+.home-check-answer-button:hover {
+  cursor: pointer;
+  background-color: #d4a700;
+}
 
 .home-load-question-button {
   font-size: 1rem;
@@ -109,6 +113,10 @@ body, html, main {
   border-radius: 5px;
   padding: 10px;
 }
+.home-load-question-button:hover {
+  cursor: pointer;
+  background-color: #d4a700;
+}
 
 .edit-form {
   background-color: #fff;
@@ -120,48 +128,64 @@ body, html, main {
   width: 100% !important;
 }
 .edit-form button {
-  background-color: #FFCA08;
+  background-color: #d4a700;
   outline: none;
   border: none;
-  border-bottom: 1px solid #FFCA08;
-  border-top: 1px solid #FFCA08;
+  border-bottom: 1px solid #d4a700;
+  border-top: 1px solid #d4a700;
   font-size: 1rem;
   font-family: "Raleway", sans-serif;
   color: #0085A1;
   position: absolute;
-  top: 5px;
+  top: 10px;
   right: 20px;
   display: block;
 }
 .edit-form button:hover {
   cursor: pointer;
-  background-color: #ffe06e;
+  background-color: #ffd53b;
 }
 
 .all-questions {
   width: 90%;
-  margin: auto;
+  margin: 2rem auto;
+}
+.all-questions div > div {
+  background-color: whitesmoke;
+  border: 3px solid #0085A1;
+  border-radius: 5px;
+  margin: 1rem 0;
+  padding: 10px;
 }
 .all-questions p {
-  font-size: 1.5rem;
-  letter-spacing: 0.01rem;
   color: #0085A1;
-  line-height: 2rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.03rem;
+  font-family: "Merriweather Sans", sans-serif;
+  margin: 1rem 0 1rem 2rem;
+}
+.all-questions .button-container {
+  width: 30%;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  grid-auto-flow: column;
+  border: none;
 }
 .all-questions button {
-  background-color: #FFCA08;
+  background-color: #0085A1;
   outline: none;
-  border: none;
-  border-bottom: 1px solid #FFCA08;
-  border-top: 1px solid #FFCA08;
+  border: 1px solid #fff;
+  border-radius: 24px;
   font-size: 1rem;
   font-family: "Raleway", sans-serif;
-  color: #0085A1;
+  color: #fff;
   margin: 0.5rem 1rem;
+  padding: 10px;
 }
 .all-questions button:hover {
   cursor: pointer;
-  background-color: #ffe06e;
+  background-color: #d4a700;
 }
 
 nav {
@@ -229,7 +253,7 @@ nav ul li a:hover {
   outline: none;
 }
 .new-form textarea:focus, .edit-form textarea:focus, .new-form textarea:active, .edit-form textarea:active, .new-form input[type=text]:focus, .edit-form input[type=text]:focus, .new-form input[type=text]:active, .edit-form input[type=text]:active {
-  border: 0.5px solid #FFCA08;
+  border: 0.5px solid #d4a700;
 }
 .new-form textarea, .edit-form textarea {
   resize: vertical;
